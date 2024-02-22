@@ -22,7 +22,7 @@ spec:
             - containerPort: 80
           env:
             - name: PMA_HOST
-              value: mysql
+              value: mysql-service.mysql.svc.cluster.local
             - name: PMA_PORT
               value: "3306"
             - name: MYSQL_USERNAME
