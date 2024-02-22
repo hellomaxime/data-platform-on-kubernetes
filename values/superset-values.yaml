@@ -1,0 +1,3 @@
+configOverrides:
+  secret: |
+    SECRET_KEY = '3d86cByrdRGniaBJu+tYhXUWFvrdCcIESxCtpu0xoU/H1pV+lvOUJRUj'
