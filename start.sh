@@ -13,6 +13,8 @@ helm repo update
 kubectl create namespace mysql
 kubectl apply -f deployments/mysql.yaml
 kubectl apply -f deployments/phpmyadmin.yaml
+kubectl apply -f ingress/phpmyadmin-ingress.yaml
+echo $(minikube ip) dataplatform.phpmyadmin.io >> /etc/hosts
 
 kubectl create namespace spark
 helm install spark bitnami/spark --namespace spark
@@ -23,6 +25,9 @@ helm upgrade --install --values values/superset-values.yaml superset superset/su
 kubectl create namespace jupyterhub
 helm upgrade --install --values values/jupyterhub-values.yaml jupyterhub jupyterhub/jupyterhub --namespace jupyterhub
 kubectl apply -f ingress/jupyterhub-ingress.yaml
+echo $(minikube ip) dataplatform.jupyterhub.io >> /etc/hosts
 
 kubectl create namespace airflow
 helm upgrade --install airflow apache-airflow/airflow --namespace airflow
+kubectl apply -f ingress/airflow-ingress.yaml
+echo $(minikube ip) dataplatform.airflow.io >> /etc/hosts

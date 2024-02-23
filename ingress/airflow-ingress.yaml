@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jupyterhub-ingress
-  namespace: jupyterhub
+  name: airflow-ingress
+  namespace: airflow
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-    - host: dataplatform.jupyterhub.io
+    - host: dataplatform.airflow.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: proxy-public
+                name: airflow-webserver
                 port:
-                  number: 80
+                  number: 8080

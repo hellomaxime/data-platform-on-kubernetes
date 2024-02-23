@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jupyterhub-ingress
-  namespace: jupyterhub
+  name: phpmyadmin-ingress
+  namespace: mysql
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-    - host: dataplatform.jupyterhub.io
+    - host: dataplatform.phpmyadmin.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: proxy-public
+                name: phpmyadmin-service
                 port:
-                  number: 80
+                  number: 3312
