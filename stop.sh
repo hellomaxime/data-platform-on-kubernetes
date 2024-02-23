@@ -11,3 +11,5 @@ helm uninstall spark -n spark
 kubectl delete namespace spark
 
 helm uninstall superset
+
+helm uninstall jupyterhub

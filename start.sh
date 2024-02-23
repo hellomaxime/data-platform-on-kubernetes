@@ -15,3 +15,5 @@ kubectl create namespace spark
 helm install spark bitnami/spark --namespace spark
 
 helm upgrade --install --values values/superset-values.yaml superset superset/superset
+
+helm upgrade --install --values values/jupyterhub-values.yaml jupyterhub bitnami/jupyterhub
