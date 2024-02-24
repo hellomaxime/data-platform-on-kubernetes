@@ -9,6 +9,8 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add superset https://apache.github.io/superset
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo add apache-airflow https://airflow.apache.org
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
 # install tools
@@ -56,4 +58,12 @@ if [[ $KAFKA == "y" ]]; then
     kubectl apply -f kubefiles/kafka-cluster.yaml -n kafka
     kubectl wait kafka/kafka-cluster --for=condition=Ready --timeout=600s -n kafka
     kubectl apply -f kubefiles/kafka-topic.yaml -n kafka
+fi
+
+if [[ $GRAFANA == "y" ]]; then
+    helm install prometheus prometheus-community/prometheus
+    helm install grafana grafana/grafana
+    kubectl apply -f ingress/grafana-ingress.yaml
+    echo "update /etc/hosts : dataplatform.grafana.io"
+    echo $(minikube ip) dataplatform.grafana.io | sudo tee -a /etc/hosts
 fi

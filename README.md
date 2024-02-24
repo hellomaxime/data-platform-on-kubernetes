@@ -1,17 +1,32 @@
 ## data-platform-on-kubernetes
 
 Prerequisites:
+- minikube (local cluster for development)
 - kubernetes cluster
 - kubectl
 - helm
+- nginx ingress controller
 
 Available services:
 - Airflow
+- Grafana/Prometheus
 - JupyterHub
 - Kafka
 - MySQL/Phpmyadmin
 - Spark
 - Superset
+
+---
+
+Before deploying in the cluster, choose the services you want to start in the `.config` file. (y|n)  
+
+Start script : `./start.sh`  
+Stop script : `./stop.sh`  
+
+You may need to wait a few minutes for all services to start, you can check pods status with the following command : `kubectl get all -A`.  
+
+Some services are accessible through an URL.  
+example : http://dataplatform.jupyterhub.io/
 
 ---  
   
@@ -25,3 +40,6 @@ __get helm default values__
 
 __config file__  
 set .config file to choose services you want to enable/disable
+
+__minikube ingress addons__  
+`minikube addons enable ingress`

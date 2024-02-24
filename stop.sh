@@ -41,3 +41,9 @@ if [[ $KAFKA == "y" ]]; then
     kubectl delete -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     kubectl delete namespace kafka
 fi
+
+if [[ $GRAFANA == "y" ]]; then
+    helm uninstall prometheus
+    helm uninstall grafana
+    kubectl delete -f ingress/grafana-ingress.yaml
+fi
