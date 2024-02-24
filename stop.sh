@@ -34,3 +34,10 @@ if [[ $AIRFLOW == "y" ]]; then
     kubectl delete -f ingress/airflow-ingress.yaml
     kubectl delete namespace airflow
 fi
+
+if [[ $KAFKA == "y" ]]; then
+    kubectl delete -f kubefiles/kafka-topic.yaml -n kafka
+    kubectl delete -f kubefiles/kafka-cluster.yaml -n kafka
+    kubectl delete -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+    kubectl delete namespace kafka
+fi

@@ -8,6 +8,7 @@ Prerequisites:
 Available services:
 - Airflow
 - JupyterHub
+- Kafka
 - MySQL/Phpmyadmin
 - Spark
 - Superset

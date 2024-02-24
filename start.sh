@@ -49,3 +49,11 @@ if [[ $AIRFLOW == "y" ]]; then
     echo "update /etc/hosts : dataplatform.airflow.io"
     echo $(minikube ip) dataplatform.airflow.io | sudo tee -a /etc/hosts
 fi
+
+if [[ $KAFKA == "y" ]]; then
+    kubectl create namespace kafka
+    kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+    kubectl apply -f kubefiles/kafka-cluster.yaml -n kafka
+    kubectl wait kafka/kafka-cluster --for=condition=Ready --timeout=600s -n kafka
+    kubectl apply -f kubefiles/kafka-topic.yaml -n kafka
+fi
