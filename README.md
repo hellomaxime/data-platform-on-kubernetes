@@ -12,6 +12,7 @@ Available services:
 - Grafana/Prometheus
 - JupyterHub
 - Kafka
+- MinIO
 - MySQL/Phpmyadmin
 - PostgreSQL
 - Spark

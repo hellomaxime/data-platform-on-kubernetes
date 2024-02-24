@@ -72,3 +72,11 @@ if [[ $POSTGRESQL == "y" ]]; then
     kubectl create namespace postgresql
     helm install postgresql bitnami/postgresql --namespace postgresql
 fi
+
+if [[ $MINIO == "y" ]]; then
+    kubectl create namespace minio
+    helm install minio bitnami/minio -n minio
+    kubectl apply -f ingress/minio-ingress.yaml
+    echo "update /etc/hosts : dataplatform.minio.io"
+    echo $(minikube ip) dataplatform.minio.io | sudo tee -a /etc/hosts
+fi

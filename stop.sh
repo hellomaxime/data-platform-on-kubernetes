@@ -52,3 +52,9 @@ if [[ $POSTGRESQL == "y" ]]; then
     helm uninstall postgresql -n postgresql
     kubectl delete namespace postgresql
 fi
+
+if [[ $MINIO == "y" ]]; then
+    helm uninstall minio -n minio
+    kubectl delete -f ingress/minio-ingress.yaml
+    kubectl delete namespace minio
+fi
