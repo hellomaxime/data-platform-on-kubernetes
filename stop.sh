@@ -1,23 +1,36 @@
 #!/bin/bash
 
+source ./.config
+
 echo "Stopping data platform..."
 
 # uninstall tools
-kubectl delete -f deployments/mysql.yaml
-kubectl delete -f deployments/phpmyadmin.yaml
-kubectl delete -f ingress/phpmyadmin-ingress.yaml
-kubectl delete namespace mysql
+if [[ $MYSQL == "y" ]]; then
+    kubectl delete -f deployments/mysql.yaml
+    kubectl delete -f deployments/phpmyadmin.yaml
+    kubectl delete -f ingress/phpmyadmin-ingress.yaml
+    kubectl delete namespace mysql
+fi
 
-helm uninstall spark -n spark
-kubectl delete namespace spark
+if [[ $SPARK == "y" ]]; then
+    helm uninstall spark -n spark
+    kubectl delete namespace spark
+fi
 
-helm uninstall superset
-kubectl delete namespace superset
+if [[ $SUPERSET == "y" ]]; then
+    helm uninstall superset -n superset
+    kubectl delete -f ingress/superset-ingress.yaml
+    kubectl delete namespace superset
+fi
 
-helm uninstall jupyterhub
+if [[ $JUPYTERHUB == "y" ]]; then
+helm uninstall jupyterhub -n jupyterhub
 kubectl delete -f ingress/jupyterhub-ingress.yaml
 kubectl delete namespace jupyterhub
+fi
 
-helm uninstall airflow
-kubectl delete -f ingress/airflow-ingress.yaml
-kubectl delete namespace airflow
+if [[ $AIRFLOW == "y" ]]; then
+    helm uninstall airflow -n airflow
+    kubectl delete -f ingress/airflow-ingress.yaml
+    kubectl delete namespace airflow
+fi
