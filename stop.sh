@@ -47,3 +47,8 @@ if [[ $GRAFANA == "y" ]]; then
     helm uninstall grafana
     kubectl delete -f ingress/grafana-ingress.yaml
 fi
+
+if [[ $POSTGRESQL == "y" ]]; then
+    helm uninstall postgresql -n postgresql
+    kubectl delete namespace postgresql
+fi

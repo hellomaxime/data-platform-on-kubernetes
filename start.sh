@@ -67,3 +67,8 @@ if [[ $GRAFANA == "y" ]]; then
     echo "update /etc/hosts : dataplatform.grafana.io"
     echo $(minikube ip) dataplatform.grafana.io | sudo tee -a /etc/hosts
 fi
+
+if [[ $POSTGRESQL == "y" ]]; then
+    kubectl create namespace postgresql
+    helm install postgresql bitnami/postgresql --namespace postgresql
+fi
