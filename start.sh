@@ -80,3 +80,9 @@ if [[ $MINIO == "y" ]]; then
     echo "update /etc/hosts : dataplatform.minio.io"
     echo $(minikube ip) dataplatform.minio.io | sudo tee -a /etc/hosts
 fi
+
+if [[ $MONGODB == "y" ]]; then
+    kubectl create namespace mongodb
+    kubectl apply -f persistentvolumes/mongodb.yaml
+    kubectl apply -f deployments/mongodb.yaml
+fi

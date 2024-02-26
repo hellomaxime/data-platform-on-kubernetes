@@ -13,6 +13,7 @@ Available services:
 - JupyterHub
 - Kafka
 - MinIO
+- MongoDB
 - MySQL/Phpmyadmin
 - PostgreSQL
 - Spark

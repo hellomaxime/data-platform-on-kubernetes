@@ -58,3 +58,8 @@ if [[ $MINIO == "y" ]]; then
     kubectl delete -f ingress/minio-ingress.yaml
     kubectl delete namespace minio
 fi
+
+if [[ $MONGODB == "y" ]]; then
+    kubectl delete -f deployments/mongodb.yaml
+    kubectl delete namespace mongodb
+fi
