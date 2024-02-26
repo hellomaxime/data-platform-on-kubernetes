@@ -9,6 +9,7 @@ Prerequisites:
 
 Available services:
 - Airflow
+- Delta Lake
 - Grafana/Prometheus
 - JupyterHub
 - Kafka
