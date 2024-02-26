@@ -1,16 +1,16 @@
-FROM ubuntu:22.04
+FROM python:3.11.8-alpine3.19
 
 WORKDIR /home/
 
 COPY transform.py requirements.txt ./
 
-RUN apt-get update && apt-get install -y \
-    openjdk-11-jdk-headless \
-    openjdk-11-jre-headless \
-    python3 \
-    python3-pip \
-    vim \
+RUN apk update && apk add \
+    openjdk11 \
+    openjdk11-jre \
+    bash \
     git \
-    curl
+    vim \
+    curl \
+    wget
 
 RUN pip install -r requirements.txt
