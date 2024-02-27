@@ -9,7 +9,7 @@ Prerequisites:
 
 Available services:
 - Airflow
-- Delta Lake
+- dbt
 - Grafana/Prometheus
 - JupyterHub
 - Kafka
@@ -19,6 +19,10 @@ Available services:
 - PostgreSQL
 - Spark
 - Superset
+
+Data formats:
+- Delta Lake
+- Apache Iceberg (soon)
 
 ---
 

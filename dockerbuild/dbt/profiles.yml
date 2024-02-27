@@ -1,0 +1,12 @@
+dbt_kube:
+  outputs:
+    dev:
+      dbname: dbtkube
+      host: postgresql.postgresql.svc.cluster.local
+      pass: x2H2JwhFNV
+      port: 5432
+      schema: kubeschema
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
