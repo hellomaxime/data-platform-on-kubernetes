@@ -63,3 +63,8 @@ if [[ $MONGODB == "y" ]]; then
     kubectl delete -f deployments/mongodb.yaml
     kubectl delete namespace mongodb
 fi
+
+if [[ $ARGOWORKFLOWS == "y" ]]; then
+    kubectl delete -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.4/quick-start-minimal.yaml
+    kubectl delete namespace argo
+fi

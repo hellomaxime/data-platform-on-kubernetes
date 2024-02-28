@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pyspark-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: pyspark
+          image: pyspark
+          command: ["/bin/bash", "-c", "python3 transform.py"]
+          imagePullPolicy: Never
+      restartPolicy: Never
+  backoffLimit: 2

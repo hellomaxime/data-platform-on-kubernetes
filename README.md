@@ -9,6 +9,7 @@ Prerequisites:
 
 Available services:
 - Airflow
+- Argo Workflows
 - dbt
 - Grafana/Prometheus
 - JupyterHub

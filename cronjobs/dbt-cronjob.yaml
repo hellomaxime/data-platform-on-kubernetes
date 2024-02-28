@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dbt-cronjob
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: dbt
+              image: dbt-kube
+              command: ["/bin/bash", "-c", "dbt run"]
+              imagePullPolicy: Never
+          restartPolicy: Never
