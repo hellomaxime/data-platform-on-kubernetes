@@ -1,2 +1,8 @@
+https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.6/hadoop-aws-3.3.6.jar
+https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.12.665/aws-java-sdk-1.12.665.jar
+https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-core/1.12.665/aws-java-sdk-core-1.12.665.jar
+https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-s3/1.12.665/aws-java-sdk-s3-1.12.665.jar
+https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.6/hadoop-client-api-3.3.6.jar
+https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.6/hadoop-client-runtime-3.3.6.jar
 https://repo1.maven.org/maven2/io/delta/delta-spark_2.12/3.1.0/delta-spark_2.12-3.1.0.jar
 https://repo1.maven.org/maven2/io/delta/delta-storage/3.1.0/delta-storage-3.1.0.jar
