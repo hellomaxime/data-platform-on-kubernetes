@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: pyspark-job
 spec:
+  backoffLimit: 2
+  activeDeadlineSeconds: 100
   template:
     spec:
       containers:
@@ -11,4 +13,3 @@ spec:
           command: ["/bin/bash", "-c", "python3 transform.py"]
           imagePullPolicy: Never
       restartPolicy: Never
-  backoffLimit: 2
