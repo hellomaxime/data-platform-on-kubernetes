@@ -62,7 +62,7 @@ spec:
     druid.metadata.storage.type=postgresql
     druid.metadata.storage.connector.connectURI=jdbc:postgresql://postgresql.postgresql.svc.cluster.local/druid
     druid.metadata.storage.connector.user=postgres
-    druid.metadata.storage.connector.password=MDoA1Rack3
+    druid.metadata.storage.connector.password=password
 
     # Deep Storage
     druid.storage.type=local

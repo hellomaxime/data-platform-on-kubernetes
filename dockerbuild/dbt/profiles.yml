@@ -3,7 +3,7 @@ dbt_kube:
     dev:
       dbname: dbtkube
       host: postgresql.postgresql.svc.cluster.local
-      pass: x2H2JwhFNV
+      pass: password
       port: 5432
       schema: kubeschema
       threads: 1

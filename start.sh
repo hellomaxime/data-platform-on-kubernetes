@@ -71,7 +71,8 @@ fi
 
 if [[ $POSTGRESQL == "y" ]]; then
     kubectl create namespace postgresql
-    helm install postgresql bitnami/postgresql --namespace postgresql
+    kubectl apply -f persistentvolumes/postgresql.yaml
+    kubectl apply -f deployments/postgresql.yaml
 fi
 
 if [[ $MINIO == "y" ]]; then
