@@ -68,3 +68,10 @@ if [[ $ARGOWORKFLOWS == "y" ]]; then
     kubectl delete -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.4/quick-start-minimal.yaml
     kubectl delete namespace argo
 fi
+
+if [[ $DRUID == "y" ]]; then
+    kubectl delete -f kubefiles/druid-cluster.yaml -n druid-operator-system
+    kubectl delete -f kubefiles/druid-zk-cluster.yaml -n druid-operator-system
+    helm uninstall cluster-druid-operator -n druid-operator-system
+    kubectl delete namespace druid-operator-system
+fi

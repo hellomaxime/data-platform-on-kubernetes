@@ -11,6 +11,7 @@ Available services:
 - Airflow
 - Argo Workflows
 - dbt
+- Druid
 - Grafana/Prometheus
 - JupyterHub
 - Kafka

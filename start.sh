@@ -11,6 +11,7 @@ helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo add apache-airflow https://airflow.apache.org
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
+helm repo add datainfra https://charts.datainfra.io
 helm repo update
 
 # install tools
@@ -90,4 +91,11 @@ fi
 if [[ $ARGOWORKFLOWS == "y" ]]; then
     kubectl create namespace argo
     kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.4/quick-start-minimal.yaml
+fi
+
+if [[ $DRUID == "y" ]]; then
+    kubectl create namespace druid-operator-system
+    helm upgrade -i cluster-druid-operator datainfra/druid-operator -n druid-operator-system
+    kubectl apply -f kubefiles/druid-zk-cluster.yaml -n druid-operator-system
+    kubectl apply -f kubefiles/druid-cluster.yaml -n druid-operator-system
 fi
