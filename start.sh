@@ -12,6 +12,7 @@ helm repo add apache-airflow https://airflow.apache.org
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add datainfra https://charts.datainfra.io
+helm repo add airbyte https://airbytehq.github.io/helm-charts
 helm repo update
 
 # install tools
@@ -99,4 +100,9 @@ if [[ $DRUID == "y" ]]; then
     helm upgrade -i cluster-druid-operator datainfra/druid-operator -n druid-operator-system
     kubectl apply -f kubefiles/druid-zk-cluster.yaml -n druid-operator-system
     kubectl apply -f kubefiles/druid-cluster.yaml -n druid-operator-system
+fi
+
+if [[ $AIRBYTE == "y" ]]; then
+    kubectl create namespace airbyte
+    helm install airbyte airbyte/airbyte -n airbyte
 fi

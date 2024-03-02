@@ -76,3 +76,8 @@ if [[ $DRUID == "y" ]]; then
     helm uninstall cluster-druid-operator -n druid-operator-system
     kubectl delete namespace druid-operator-system
 fi
+
+if [[ $AIRBYTE == "y" ]]; then
+    helm uninstall airbyte -n airbyte
+    kubectl delete namespace airbyte
+fi

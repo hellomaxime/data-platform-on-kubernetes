@@ -8,6 +8,7 @@ Prerequisites:
 - nginx ingress controller
 
 Available services:
+- Airbyte
 - Airflow
 - Argo Workflows
 - dbt
