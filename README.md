@@ -8,20 +8,30 @@ Prerequisites:
 - nginx ingress controller
 
 Available services:
-- Airbyte
-- Airflow
-- Argo Workflows
-- dbt
-- Druid
-- Grafana/Prometheus
-- JupyterHub
-- Kafka
-- MinIO
-- MongoDB
-- MySQL/Phpmyadmin
-- PostgreSQL
-- Spark
-- Superset
+
+- __Data integration__
+    - Airbyte
+- __Event streaming__
+    - Kafka
+- __Database__
+    - Druid
+    - MongoDB
+    - MySQL/Phpmyadmin
+    - PostgreSQL
+- __Datalake__
+    - MinIO
+- __Data transformation__
+    - dbt
+    - Spark
+- __Visualization__
+    - Superset
+- __Orchestration__
+    - Airflow
+    - Argo Workflows
+- __Monitoring__
+    - Grafana/Prometheus
+- __Notebook__
+    - JupyterHub
 
 Data formats:
 - Delta Lake
