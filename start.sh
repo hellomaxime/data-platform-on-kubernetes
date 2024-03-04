@@ -13,6 +13,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add datainfra https://charts.datainfra.io
 helm repo add airbyte https://airbytehq.github.io/helm-charts
+helm repo add flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
 helm repo update
 
 # install tools
@@ -105,4 +106,9 @@ fi
 if [[ $AIRBYTE == "y" ]]; then
     kubectl create namespace airbyte
     helm install airbyte airbyte/airbyte -n airbyte
+fi
+
+if [[ $FLINK == "y" ]]; then
+    kubectl create -f https://github.com/jetstack/cert-manager/releases/download/v1.8.2/cert-manager.yaml
+    helm install flink-kubernetes-operator flink-operator-repo/flink-kubernetes-operator --set webhook.create=false
 fi

@@ -81,3 +81,7 @@ if [[ $AIRBYTE == "y" ]]; then
     helm uninstall airbyte -n airbyte
     kubectl delete namespace airbyte
 fi
+
+if [[ $FLINK == "y" ]]; then
+    helm uninstall flink-kubernetes-operator
+fi

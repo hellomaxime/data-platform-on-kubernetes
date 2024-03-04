@@ -22,6 +22,7 @@ Available services:
     - MinIO
 - __Data transformation__
     - dbt
+    - Flink
     - Spark
 - __Visualization__
     - Superset
