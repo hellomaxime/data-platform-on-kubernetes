@@ -1,13 +1,14 @@
-## data-platform-on-kubernetes
+# Data platform on Kubernetes
 
-Prerequisites:
-- minikube (local cluster for development)
-- kubernetes cluster
+This project aims to deploy a complete data platform on kubernetes, many services are available to build end-to-end data engineering projects from ingestion to visualization. 
+
+## Prerequisites
+- docker
+- kubernetes (minikube cluster for local development)
 - kubectl
 - helm
-- nginx ingress controller
 
-Available services:
+## Available services
 
 - __Data integration__
     - Airbyte
@@ -34,11 +35,11 @@ Available services:
 - __Notebook__
     - JupyterHub
 
-Data formats:
+## Data formats
 - Delta Lake
 - Apache Iceberg (soon)
 
----
+## How to deploy the data platform on kubernetes
 
 Before deploying in the cluster, choose the services you want to start in the `.config` file. (y|n)  
 
@@ -49,10 +50,8 @@ You may need to wait a few minutes for all services to start, you can check pods
 
 Some services are accessible through an URL.  
 example : `http://dataplatform.<service-name>.io/`
-
----  
   
-Helpful:  
+## Helpful:  
 
 __access another service from inside__  
 `<service-name>.<namespace>.svc.cluster.local:<service-port>`
