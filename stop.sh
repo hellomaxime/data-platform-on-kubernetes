@@ -49,6 +49,7 @@ if [[ $GRAFANA == "y" ]]; then
 fi
 
 if [[ $POSTGRESQL == "y" ]]; then
+    kubectl delete -f deployments/pgadmin.yaml
     kubectl delete -f deployments/postgresql.yaml
     kubectl delete -f persistentvolumes/postgresql.yaml
     kubectl delete namespace postgresql

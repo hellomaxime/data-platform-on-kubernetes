@@ -75,6 +75,7 @@ if [[ $POSTGRESQL == "y" ]]; then
     kubectl create namespace postgresql
     kubectl apply -f persistentvolumes/postgresql.yaml
     kubectl apply -f deployments/postgresql.yaml
+    kubectl apply -f deployments/pgadmin.yaml
 fi
 
 if [[ $MINIO == "y" ]]; then
