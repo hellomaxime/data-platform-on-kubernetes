@@ -12,8 +12,9 @@ This project aims to deploy a complete data platform on kubernetes, many service
 
 - __Data integration__
     - Airbyte
-- __Event streaming__
+- __Message queue__
     - Kafka
+    - RabbitMQ
 - __Database__
     - Druid
     - MongoDB

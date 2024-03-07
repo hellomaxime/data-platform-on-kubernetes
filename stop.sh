@@ -86,3 +86,8 @@ fi
 if [[ $FLINK == "y" ]]; then
     helm uninstall flink-kubernetes-operator
 fi
+
+if [[ $RABBITMQ == "y" ]]; then
+    kubectl delete -f kubefiles/rabbitmq-cluster.yaml
+    helm uninstall rabbitmq
+fi
