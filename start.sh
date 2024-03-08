@@ -118,3 +118,8 @@ if [[ $RABBITMQ == "y" ]]; then
     helm install rabbitmq bitnami/rabbitmq-cluster-operator
     kubectl apply -f kubefiles/rabbitmq-cluster.yaml
 fi
+
+if [[ $CASSANDRA == "y" ]]; then
+    kubectl create namespace cassandra
+    helm install cassandra bitnami/cassandra -n cassandra
+fi

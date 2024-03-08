@@ -91,3 +91,8 @@ if [[ $RABBITMQ == "y" ]]; then
     kubectl delete -f kubefiles/rabbitmq-cluster.yaml
     helm uninstall rabbitmq
 fi
+
+if [[ $CASSANDRA == "y" ]]; then
+    helm uninstall cassandra -n cassandra
+    kubectl delete namespace cassandra
+fi

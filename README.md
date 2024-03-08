@@ -16,6 +16,7 @@ This project aims to deploy a complete data platform on kubernetes, many service
     - Kafka
     - RabbitMQ
 - __Database__
+    - Cassandra
     - Druid
     - MongoDB
     - MySQL/Phpmyadmin
