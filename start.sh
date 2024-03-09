@@ -14,6 +14,7 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add datainfra https://charts.datainfra.io
 helm repo add airbyte https://airbytehq.github.io/helm-charts
 helm repo add flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
+helm repo add trino https://trinodb.github.io/charts
 helm repo update
 
 # install tools
@@ -122,4 +123,9 @@ fi
 if [[ $CASSANDRA == "y" ]]; then
     kubectl create namespace cassandra
     helm install --values values/cassandra-values.yaml cassandra bitnami/cassandra -n cassandra
+fi
+
+if [[ $TRINO == "y" ]]; then
+    kubectl create namespace trino
+    helm install -f values/trino-catalogs.yaml trino-cluster trino/trino -n trino
 fi

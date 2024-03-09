@@ -96,3 +96,8 @@ if [[ $CASSANDRA == "y" ]]; then
     helm uninstall cassandra -n cassandra
     kubectl delete namespace cassandra
 fi
+
+if [[ $TRINO == "y" ]]; then
+    helm uninstall trino-cluster -n trino
+    kubectl delete namespace trino
+fi

@@ -27,6 +27,8 @@ This project aims to deploy a complete data platform on kubernetes, many service
     - dbt
     - Flink
     - Spark
+- __Distributed SQL query engine__
+    - Trino
 - __Visualization__
     - Superset
 - __Orchestration__

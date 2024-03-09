@@ -1,0 +1,6 @@
+additionalCatalogs:
+  rdbms: |-
+    connector.name=postgresql
+    connection-url=jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/postgres
+    connection-user=postgres
+    connection-password=password
