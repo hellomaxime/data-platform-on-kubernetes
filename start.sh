@@ -121,5 +121,5 @@ fi
 
 if [[ $CASSANDRA == "y" ]]; then
     kubectl create namespace cassandra
-    helm install cassandra bitnami/cassandra -n cassandra
+    helm install --values values/cassandra-values.yaml cassandra bitnami/cassandra -n cassandra
 fi
