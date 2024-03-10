@@ -1,6 +1,13 @@
 additionalCatalogs:
-  rdbms: |-
+  postgresql: |-
     connector.name=postgresql
     connection-url=jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/postgres
     connection-user=postgres
     connection-password=password
+  cassandra: |-
+    connector.name=cassandra
+    cassandra.contact-points=cassandra.cassandra.svc.cluster.local
+    cassandra.native-protocol-port=9042
+    cassandra.load-policy.dc-aware.local-dc=datacenter1
+    cassandra.username=cassandra
+    cassandra.password=cassandra
