@@ -15,6 +15,8 @@ This project aims to deploy a complete data platform on kubernetes, many service
 - __Message queue__
     - Kafka
     - RabbitMQ
+- __Change Data Capture__
+    - Debezium
 - __Database__
     - Cassandra
     - Druid

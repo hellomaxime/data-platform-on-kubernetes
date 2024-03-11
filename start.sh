@@ -129,3 +129,7 @@ if [[ $TRINO == "y" ]]; then
     kubectl create namespace trino
     helm install -f values/trino-catalogs.yaml trino-cluster trino/trino -n trino
 fi
+
+if [[ $DEBEZIUM == "y" ]]; then
+    kubectl apply -f kubefiles/debezium-kafkaconnect.yaml
+fi

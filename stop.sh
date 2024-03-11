@@ -101,3 +101,7 @@ if [[ $TRINO == "y" ]]; then
     helm uninstall trino-cluster -n trino
     kubectl delete namespace trino
 fi
+
+if [[ $DEBEZIUM == "y" ]]; then
+    kubectl delete -f kubefiles/debezium-kafkaconnect.yaml
+fi
