@@ -45,17 +45,25 @@ This project aims to deploy a complete data platform on kubernetes, many service
 
 ## How to deploy the data platform on kubernetes
 
-Before deploying in the cluster, choose the services you want to start in the `.config` file. (y|n)  
+Before deploying in the cluster, choose services you want to start in `.config` file. (y|n)  
 
-Start script : `./start.sh`  
-Stop script : `./stop.sh`  
+__(WIP) Option 1 : deploy using Terraform__  
+`terraform init`  
+`terraform apply`  
+
+__Option 2 : deploy using scripts__  
+`./start.sh`  
 
 You may need to wait a few minutes for all services to start, you can check pods status with the following command : `kubectl get all -A`.  
 
-Some services are accessible through an URL.  
-example : `http://dataplatform.<service-name>.io/`
-  
+
+__Turn off the data plaftorm__  
+`terraform destroy` or `./stop.sh`  
+
 ## Helpful:  
+
+__some services are accessible through an URL__  
+example : `http://dataplatform.<service-name>.io/`
 
 __access another service from inside__  
 `<service-name>.<namespace>.svc.cluster.local:<service-port>`
