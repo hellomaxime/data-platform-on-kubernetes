@@ -33,6 +33,8 @@ This project aims to deploy a complete data platform on kubernetes, many service
     - Trino
 - __Visualization__
     - Superset
+- __Machine learning__
+    - Kubeflow
 - __Orchestration__
     - Airflow
     - Argo Workflows

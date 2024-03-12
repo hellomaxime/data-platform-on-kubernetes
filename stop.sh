@@ -24,9 +24,9 @@ if [[ $SUPERSET == "y" ]]; then
 fi
 
 if [[ $JUPYTERHUB == "y" ]]; then
-helm uninstall jupyterhub -n jupyterhub
-kubectl delete -f ingress/jupyterhub-ingress.yaml
-kubectl delete namespace jupyterhub
+    helm uninstall jupyterhub -n jupyterhub
+    kubectl delete -f ingress/jupyterhub-ingress.yaml
+    kubectl delete namespace jupyterhub
 fi
 
 if [[ $AIRFLOW == "y" ]]; then
@@ -104,4 +104,11 @@ fi
 
 if [[ $DEBEZIUM == "y" ]]; then
     kubectl delete -f kubefiles/debezium-kafkaconnect.yaml
+fi
+
+if [[ $KUBEFLOW == "y" ]]; then
+    cd manifests
+    kubectl kustomize example | kubectl delete -f -
+    cd ..
+    rm -rf manifests
 fi

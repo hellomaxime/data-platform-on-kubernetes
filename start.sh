@@ -133,3 +133,10 @@ fi
 if [[ $DEBEZIUM == "y" ]]; then
     kubectl apply -f kubefiles/debezium-kafkaconnect.yaml
 fi
+
+if [[ $KUBEFLOW == "y" ]]; then
+    git clone https://github.com/kubeflow/manifests.git
+    cd manifests
+    while ! kubectl kustomize example | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
+    cd ..
+fi
