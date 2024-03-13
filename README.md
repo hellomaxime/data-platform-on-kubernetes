@@ -23,6 +23,8 @@ This project aims to deploy a complete data platform on kubernetes, many service
     - MongoDB
     - MySQL/Phpmyadmin
     - PostgreSQL/pgAdmin
+- __Data warehouse__
+    - ClickHouse
 - __Datalake__
     - MinIO
 - __Data transformation__

@@ -10,6 +10,9 @@ Argo Workflows
 Cassandra
 - username: cassandra, password: cassandra
 
+ClickHouse
+- username: default, password: default
+
 Grafana
 - http://dataplatform.grafana.io
 - username: admin
@@ -24,7 +27,7 @@ Kubeflow
 
 MinIO
 - http://dataplatform.minio.io
-- username:admin
+- username: admin
 - password: `kubectl get secret --namespace minio minio -o jsonpath="{.data.root-password}" | base64 -d`
 
 MySQL

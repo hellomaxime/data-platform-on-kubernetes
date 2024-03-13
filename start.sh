@@ -140,3 +140,8 @@ if [[ $KUBEFLOW == "y" ]]; then
     while ! kubectl kustomize example | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done
     cd ..
 fi
+
+if [[ $CLICKHOUSE == "y" ]]; then
+    kubectl create namespace clickhouse
+    helm install --values values/clickhouse-values.yaml clickhouse bitnami/clickhouse -n clickhouse
+fi

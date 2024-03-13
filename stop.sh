@@ -112,3 +112,8 @@ if [[ $KUBEFLOW == "y" ]]; then
     cd ..
     rm -rf manifests
 fi
+
+if [[ $CLICKHOUSE == "y" ]]; then
+    helm uninstall clickhouse -n clickhouse
+    kubectl delete namespace clickhouse
+fi
