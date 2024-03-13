@@ -1,8 +1,19 @@
+Airbyte
+- kubectl port-forward service/airbyte-airbyte-webapp-svc 8000:80 -n airbyte
+
 Airflow
 - http://dataplatform.airflow.io
 
+Argo Workflows
+- kubectl port-forward service/argo-server 2746:2746 -n argo
+
+Cassandra
+- username: cassandra, password: cassandra
+
 Grafana
 - http://dataplatform.grafana.io
+- username: admin
+- password: `kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode`
 
 JupyterHub
 - http://dataplatform.jupyterhub.io
@@ -13,8 +24,10 @@ Kubeflow
 
 MinIO
 - http://dataplatform.minio.io
+- username:admin
+- password: `kubectl get secret --namespace minio minio -o jsonpath="{.data.root-password}" | base64 -d`
 
-PhpMyAdmin
+MySQL
 - http://dataplatform.phpmyadmin.io
 - username: root, password: root
 

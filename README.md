@@ -22,7 +22,7 @@ This project aims to deploy a complete data platform on kubernetes, many service
     - Druid
     - MongoDB
     - MySQL/Phpmyadmin
-    - PostgreSQL
+    - PostgreSQL/pgAdmin
 - __Datalake__
     - MinIO
 - __Data transformation__
