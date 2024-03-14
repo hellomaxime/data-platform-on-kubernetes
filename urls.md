@@ -11,6 +11,7 @@ Cassandra
 - username: cassandra, password: cassandra
 
 ClickHouse
+- kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
 - username: default, password: default
 
 Grafana
