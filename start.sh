@@ -15,6 +15,7 @@ helm repo add datainfra https://charts.datainfra.io
 helm repo add airbyte https://airbytehq.github.io/helm-charts
 helm repo add flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
 helm repo add trino https://trinodb.github.io/charts
+helm repo add cetic https://cetic.github.io/helm-charts
 helm repo update
 
 # install tools
@@ -144,4 +145,9 @@ fi
 if [[ $CLICKHOUSE == "y" ]]; then
     kubectl create namespace clickhouse
     helm install --values values/clickhouse-values.yaml clickhouse bitnami/clickhouse -n clickhouse
+fi
+
+if [[ $NIFI == "y" ]]; then
+    kubectl create namespace nifi
+    helm install --values values/nifi-values.yaml nifi cetic/nifi -n nifi
 fi

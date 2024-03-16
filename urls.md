@@ -35,6 +35,11 @@ MySQL
 - http://dataplatform.phpmyadmin.io
 - username: root, password: root
 
+Nifi
+- kubectl port-forward svc/nifi 8443:8443 -n nifi
+- https://localhost:8443/nifi/
+- username: username, password: nifipassword
+
 PostgreSQL
 - kubectl port-forward service/pgadmin-service 8080:80 -n postgresql
 - username: postgres, password: password

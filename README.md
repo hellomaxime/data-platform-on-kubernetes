@@ -10,6 +10,8 @@ This project aims to deploy a complete data platform on kubernetes, many service
 
 ## Available services
 
+- __Data ingestion__
+    - Nifi
 - __Data integration__
     - Airbyte
 - __Message queue__

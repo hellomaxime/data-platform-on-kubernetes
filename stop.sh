@@ -117,3 +117,8 @@ if [[ $CLICKHOUSE == "y" ]]; then
     helm uninstall clickhouse -n clickhouse
     kubectl delete namespace clickhouse
 fi
+
+if [[ $NIFI == "y" ]]; then
+    helm uninstall nifi -n nifi
+    kubectl delete namespace nifi
+fi
