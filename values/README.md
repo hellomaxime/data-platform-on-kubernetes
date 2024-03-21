@@ -11,3 +11,8 @@ SQLAlchemy URI : `clickhousedb://default:default@clickhouse.clickhouse.svc.clust
 
 Database driver missing in superset image  
 `pip install clickhouse-connect`  
+
+---
+
+Connect to Druid  
+SQLAlchemy URI : `druid://druid-tiny-cluster-routers.druid-operator-system.svc.cluster.local:8088/druid/v2/sql`

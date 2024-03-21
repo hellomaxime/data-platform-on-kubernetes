@@ -14,6 +14,10 @@ ClickHouse
 - kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
 - username: default, password: default
 
+Druid
+- create "druid" database in postgresql
+- kubectl port-forward service/druid-tiny-cluster-routers 8088:8088 -n druid-operator-system
+
 Grafana
 - http://dataplatform.grafana.io
 - username: admin
