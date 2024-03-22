@@ -5,6 +5,7 @@
 __Users__
 - user_id
 - username
+- age
 - email
 - gender
 - city
@@ -47,6 +48,7 @@ Dimension Tables:
 __users_dim__
 - user_id (primary key)
 - username
+- age
 - email
 - gender
 - city

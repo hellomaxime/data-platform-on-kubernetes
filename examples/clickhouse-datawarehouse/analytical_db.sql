@@ -12,6 +12,7 @@ ORDER BY (order_date, order_id);
 CREATE TABLE users_dim (
     user_id UInt32 PRIMARY KEY,
     username String,
+    age UInt32,
     email String,
     gender String,
     city String
