@@ -1,4 +1,4 @@
-CREATE TABLE sales_fact (
+CREATE TABLE IF NOT EXISTS sales_fact (
     order_id UInt32,
     product_id UInt32,
     user_id UInt32,
@@ -9,7 +9,7 @@ CREATE TABLE sales_fact (
 PARTITION BY toYYYYMM(order_date)
 ORDER BY (order_date, order_id);
 
-CREATE TABLE users_dim (
+CREATE TABLE IF NOT EXISTS users_dim (
     user_id UInt32 PRIMARY KEY,
     username String,
     age UInt32,
@@ -19,7 +19,7 @@ CREATE TABLE users_dim (
 ) ENGINE = MergeTree()
 ORDER BY (user_id);
 
-CREATE TABLE product_dim (
+CREATE TABLE IF NOT EXISTS product_dim (
     product_id UInt32 PRIMARY KEY,
     name String,
     description String,
@@ -28,20 +28,20 @@ CREATE TABLE product_dim (
 ) ENGINE = MergeTree()
 ORDER BY (product_id);
 
-CREATE TABLE orders_dim (
+CREATE TABLE IF NOT EXISTS orders_dim (
     order_id UInt32 PRIMARY KEY,
     order_date Date,
     total_amount Decimal(10, 2)
 ) ENGINE = MergeTree()
 PARTITION BY toYYYYMM(order_date)
-ORDER BY (order_date, order_id);
+ORDER BY (order_id, order_date);
 
-CREATE TABLE order_details_dim (
+CREATE TABLE IF NOT EXISTS order_details_dim (
     order_detail_id UInt32 PRIMARY KEY,
     order_id UInt32,
     product_id UInt32,
     quantity UInt32,
-    price_per_unit Decimal(10, 2)
+    price_per_unit Decimal(10, 2),
     total_price Decimal(10, 2)
 ) ENGINE = MergeTree()
-ORDER BY (order_id, order_detail_id);
+ORDER BY (order_detail_id, order_id);
