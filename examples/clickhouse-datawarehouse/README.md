@@ -1,3 +1,16 @@
+## ClickHouse Data Warehouse
+
+An example of ecommerce use case, writing transactions into a mysql database, then extract, transform and load data in a ClickHouse data warehouse for analytics.
+
+Stack : MySQL / python pandas script / ClickHouse / Superset 
+
+Steps:
+- deploy needed tools
+- create and load data in a MySQL database (`operational_db.sql`)
+- run `clickhouse_tables.py`
+- run `load_data.py`
+- visualize with apache superset
+
 ## Data models
 
 ### MySQL data model

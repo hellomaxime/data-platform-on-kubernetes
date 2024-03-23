@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users_dim (
 ) ENGINE = MergeTree()
 ORDER BY (user_id);
 
-CREATE TABLE IF NOT EXISTS product_dim (
+CREATE TABLE IF NOT EXISTS products_dim (
     product_id UInt32 PRIMARY KEY,
     name String,
     description String,

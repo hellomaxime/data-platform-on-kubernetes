@@ -38,7 +38,7 @@ client.command("""
 """)
 
 client.command("""
-    CREATE TABLE IF NOT EXISTS product_dim (
+    CREATE TABLE IF NOT EXISTS products_dim (
         product_id UInt32 PRIMARY KEY,
         name String,
         description String,
@@ -72,5 +72,7 @@ client.command("""
 
 print("Tables created :")
 print(client.command("SHOW TABLES"))
+print("\nDatabases :")
+print(client.command("SHOW DATABASES"))
 
 client.close()
