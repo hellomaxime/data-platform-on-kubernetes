@@ -38,6 +38,7 @@ This project aims to deploy a complete data platform on kubernetes, many service
 - __Distributed SQL query engine__
     - Trino
 - __Visualization__
+    - Metabase
     - Superset
 - __Machine learning__
     - Kubeflow

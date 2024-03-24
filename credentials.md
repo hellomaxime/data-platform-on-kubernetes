@@ -30,6 +30,9 @@ Kubeflow
 - kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 - username : user@example.com, password: 12341234
 
+Metabase
+- kubectl port-forward service/metabase-service 3000:3000 -n metabase
+
 MinIO
 - http://dataplatform.minio.io
 - username: admin
@@ -43,6 +46,10 @@ Nifi
 - kubectl port-forward svc/nifi 8443:8443 -n nifi
 - https://localhost:8443/nifi/
 - username: username, password: nifipassword
+
+PgAdmin
+- http://dataplatform.pgadmin.io
+- username: admin@admin.com, password: password
 
 PostgreSQL
 - kubectl port-forward service/pgadmin-service 8080:80 -n postgresql

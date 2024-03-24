@@ -122,3 +122,8 @@ if [[ $NIFI == "y" ]]; then
     helm uninstall nifi -n nifi
     kubectl delete namespace nifi
 fi
+
+if [[ $METABASE == "y" ]]; then
+    kubectl delete -f deployments/metabase.yaml
+    kubectl delete namespace metabase
+fi

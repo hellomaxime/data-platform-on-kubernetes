@@ -151,3 +151,8 @@ if [[ $NIFI == "y" ]]; then
     kubectl create namespace nifi
     helm install --values values/nifi-values.yaml nifi cetic/nifi -n nifi
 fi
+
+if [[ $METABASE == "y" ]]; then
+    kubectl create namespace metabase
+    kubectl apply -f deployments/metabase.yaml
+fi
