@@ -5,7 +5,19 @@ metadata:
   namespace: mysql
 data:
   root-password: cm9vdA==
+  user-password: cGFzc3dvcmQ=
 
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  namespace: mysql
+data:
+  mysql-database: mysqldb
+  mysql-user: user
+  
 ---
 
 apiVersion: apps/v1
@@ -32,16 +44,32 @@ spec:
             - containerPort: 3306
           env:
             - name: MYSQL_PASSWORD
-              value: password
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: user-password
             - name: MYSQL_DATABASE
-              value: mysqldb
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: mysql-database
             - name: MYSQL_USER
-              value: user
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: mysql-user
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secrets
                   key: root-password
+          volumeMounts:
+            - name: data-volume
+              mountPath: /var/lib/mysql/
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: mysql-pvc
         
 ---
 

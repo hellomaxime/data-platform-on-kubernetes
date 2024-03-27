@@ -21,6 +21,7 @@ helm repo update
 # install tools
 if [[ $MYSQL == "y" ]]; then
     kubectl create namespace mysql
+    kubectl apply -f persistentvolumes/mysql.yaml
     kubectl apply -f deployments/mysql.yaml
     kubectl apply -f deployments/phpmyadmin.yaml
     kubectl apply -f ingress/phpmyadmin-ingress.yaml

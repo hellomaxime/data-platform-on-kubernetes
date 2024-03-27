@@ -6,6 +6,7 @@ echo "Stopping data platform..."
 
 # uninstall tools
 if [[ $MYSQL == "y" ]]; then
+    kubectl delete -f persistentvolumes/mysql.yaml
     kubectl delete -f deployments/mysql.yaml
     kubectl delete -f deployments/phpmyadmin.yaml
     kubectl delete -f ingress/phpmyadmin-ingress.yaml
