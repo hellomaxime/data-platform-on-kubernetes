@@ -66,6 +66,16 @@ spec:
           volumeMounts:
             - name: data-volume
               mountPath: /var/lib/mysql/
+          livenessProbe:
+            exec:
+              command: ["/bin/bash", "-c", "mysqladmin -p$MYSQL_ROOT_PASSWORD ping"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            exec:
+              command: ["/bin/bash", "-c", "mysql -p$MYSQL_ROOT_PASSWORD -h localhost -e 'SELECT 1'"]
+            initialDelaySeconds: 10
+            periodSeconds: 5
       volumes:
         - name: data-volume
           persistentVolumeClaim:
