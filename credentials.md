@@ -3,6 +3,7 @@ Airbyte
 
 Airflow
 - http://dataplatform.airflow.io
+- username: admin, password: admin  
 
 Argo Workflows
 - kubectl port-forward service/argo-server 2746:2746 -n argo
