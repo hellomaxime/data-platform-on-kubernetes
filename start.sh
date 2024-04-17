@@ -63,7 +63,6 @@ if [[ $KAFKA == "y" ]]; then
     kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     kubectl apply -f kubefiles/kafka-cluster.yaml -n kafka
     kubectl wait kafka/kafka-cluster --for=condition=Ready --timeout=600s -n kafka
-    kubectl apply -f kubefiles/kafka-topic.yaml -n kafka
 fi
 
 if [[ $GRAFANA == "y" ]]; then
@@ -79,6 +78,9 @@ if [[ $POSTGRESQL == "y" ]]; then
     kubectl apply -f persistentvolumes/postgresql.yaml
     kubectl apply -f deployments/postgresql.yaml
     kubectl apply -f deployments/pgadmin.yaml
+    kubectl apply -f ingress/pgadmin-ingress.yaml
+    echo "update /etc/hosts : dataplatform.pgadmin.io"
+    echo $(minikube ip) dataplatform.pgadmin.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $MINIO == "y" ]]; then
@@ -98,6 +100,9 @@ fi
 if [[ $ARGOWORKFLOWS == "y" ]]; then
     kubectl create namespace argo
     kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.4/quick-start-minimal.yaml
+    kubectl apply -f ingress/argoworkflows-ingress.yaml
+    echo "update /etc/hosts : dataplatform.argoworkflows.io"
+    echo $(minikube ip) dataplatform.argoworkflows.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $DRUID == "y" ]]; then
@@ -156,4 +161,7 @@ fi
 if [[ $METABASE == "y" ]]; then
     kubectl create namespace metabase
     kubectl apply -f deployments/metabase.yaml
+    kubectl apply -f ingress/metabase-ingress.yaml
+    echo "update /etc/hosts : dataplatform.metabase.io"
+    echo $(minikube ip) dataplatform.metabase.io | sudo tee -a /etc/hosts
 fi

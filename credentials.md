@@ -6,7 +6,7 @@ Airflow
 - username: admin, password: admin  
 
 Argo Workflows
-- kubectl port-forward service/argo-server 2746:2746 -n argo
+- https://dataplatform.argoworkflows.io/
 
 Cassandra
 - username: cassandra, password: cassandra
@@ -32,7 +32,7 @@ Kubeflow
 - username : user@example.com, password: 12341234
 
 Metabase
-- kubectl port-forward service/metabase-service 3000:3000 -n metabase
+- http://dataplatform.metabase.io
 
 MinIO
 - http://dataplatform.minio.io

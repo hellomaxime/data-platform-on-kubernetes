@@ -37,7 +37,6 @@ if [[ $AIRFLOW == "y" ]]; then
 fi
 
 if [[ $KAFKA == "y" ]]; then
-    kubectl delete -f kubefiles/kafka-topic.yaml -n kafka
     kubectl delete -f kubefiles/kafka-cluster.yaml -n kafka
     kubectl delete -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     kubectl delete namespace kafka
@@ -51,6 +50,7 @@ fi
 
 if [[ $POSTGRESQL == "y" ]]; then
     kubectl delete -f deployments/pgadmin.yaml
+    kubectl delete -f ingress/pgadmin-ingress.yaml
     kubectl delete -f deployments/postgresql.yaml
     kubectl delete -f persistentvolumes/postgresql.yaml
     kubectl delete namespace postgresql
@@ -68,6 +68,7 @@ if [[ $MONGODB == "y" ]]; then
 fi
 
 if [[ $ARGOWORKFLOWS == "y" ]]; then
+    kubectl delete -f ingress/argoworkflows-ingress.yaml
     kubectl delete -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.4/quick-start-minimal.yaml
     kubectl delete namespace argo
 fi
@@ -126,5 +127,6 @@ fi
 
 if [[ $METABASE == "y" ]]; then
     kubectl delete -f deployments/metabase.yaml
+    kubectl delete -f ingress/metabase-ingress.yaml
     kubectl delete namespace metabase
 fi
