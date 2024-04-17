@@ -100,6 +100,10 @@ if [[ $MONGODB == "y" ]]; then
     kubectl create namespace mongodb
     kubectl apply -f persistentvolumes/mongodb.yaml
     kubectl apply -f deployments/mongodb.yaml
+    kubectl apply -f deployments/mongoexpress.yaml
+    kubectl apply -f ingress/mongoexpress-ingress.yaml
+    echo "update /etc/hosts : dataplatform.mongoexpress.io"
+    echo $(minikube ip) dataplatform.mongoexpress.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $ARGOWORKFLOWS == "y" ]]; then

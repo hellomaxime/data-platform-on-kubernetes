@@ -42,6 +42,10 @@ MinIO
 - username: admin
 - password: `kubectl get secret --namespace minio minio -o jsonpath="{.data.root-password}" | base64 -d`
 
+MongoDB
+- http://dataplatform.mongoexpress.io
+- username: admin, password: pass
+
 MySQL
 - http://dataplatform.phpmyadmin.io
 - username: root, password: root
