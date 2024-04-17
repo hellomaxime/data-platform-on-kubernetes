@@ -16,6 +16,7 @@ helm repo add airbyte https://airbytehq.github.io/helm-charts
 helm repo add flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.7.0/
 helm repo add trino https://trinodb.github.io/charts
 helm repo add cetic https://cetic.github.io/helm-charts
+helm repo add kafka-ui https://provectus.github.io/kafka-ui-charts
 helm repo update
 
 # install tools
@@ -63,6 +64,10 @@ if [[ $KAFKA == "y" ]]; then
     kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
     kubectl apply -f kubefiles/kafka-cluster.yaml -n kafka
     kubectl wait kafka/kafka-cluster --for=condition=Ready --timeout=600s -n kafka
+    helm install -f values/kafka-ui-values.yaml kafka-ui kafka-ui/kafka-ui -n kafka
+    kubectl apply -f ingress/kafka-ui-ingress.yaml
+    echo "update /etc/hosts : dataplatform.kafka-ui.io"
+    echo $(minikube ip) dataplatform.kafka-ui.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $GRAFANA == "y" ]]; then

@@ -27,6 +27,9 @@ Grafana
 JupyterHub
 - http://dataplatform.jupyterhub.io
 
+Kafka
+- http://dataplatform.kafka-ui.io
+
 Kubeflow  
 - kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 - username : user@example.com, password: 12341234
