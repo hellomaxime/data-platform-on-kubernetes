@@ -58,18 +58,14 @@ This project aims to deploy a complete data platform on kubernetes, many service
 
 Before deploying in the cluster, choose services you want to start in `.config` file. (y|n)  
 
-__(WIP) Option 1 : deploy using Terraform__  
-`terraform init`  
-`terraform apply`  
-
-__Option 2 : deploy using scripts__  
+__Deploy the data plaftorm__  
 `./start.sh`  
 
 You may need to wait a few minutes for all services to start, you can check pods status with the following command : `kubectl get all -A`.  
 
 
 __Turn off the data plaftorm__  
-`terraform destroy` or `./stop.sh`  
+`./stop.sh`  
 
 ## Helpful:  
 
