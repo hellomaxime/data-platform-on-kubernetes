@@ -74,6 +74,7 @@ if [[ $ARGOWORKFLOWS == "y" ]]; then
 fi
 
 if [[ $DRUID == "y" ]]; then
+    kubectl delete -f ingress/druid-ingress.yaml
     kubectl delete -f kubefiles/druid-cluster.yaml -n druid-operator-system
     kubectl delete -f kubefiles/druid-zk-cluster.yaml -n druid-operator-system
     helm uninstall cluster-druid-operator -n druid-operator-system
@@ -81,6 +82,7 @@ if [[ $DRUID == "y" ]]; then
 fi
 
 if [[ $AIRBYTE == "y" ]]; then
+    kubectl delete -f ingress/airbyte-ingress.yaml
     helm uninstall airbyte -n airbyte
     kubectl delete namespace airbyte
 fi
@@ -121,6 +123,7 @@ if [[ $CLICKHOUSE == "y" ]]; then
 fi
 
 if [[ $NIFI == "y" ]]; then
+    kubectl delete -f ingress/nifi-ingress.yaml
     helm uninstall nifi -n nifi
     kubectl delete namespace nifi
 fi

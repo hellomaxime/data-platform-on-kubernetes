@@ -110,11 +110,17 @@ if [[ $DRUID == "y" ]]; then
     helm upgrade -i cluster-druid-operator datainfra/druid-operator -n druid-operator-system
     kubectl apply -f kubefiles/druid-zk-cluster.yaml -n druid-operator-system
     kubectl apply -f kubefiles/druid-cluster.yaml -n druid-operator-system
+    kubectl apply -f ingress/druid-ingress.yaml
+    echo "update /etc/hosts : dataplatform.druid.io"
+    echo $(minikube ip) dataplatform.druid.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $AIRBYTE == "y" ]]; then
     kubectl create namespace airbyte
     helm install airbyte airbyte/airbyte -n airbyte
+    kubectl apply -f ingress/airbyte-ingress.yaml
+    echo "update /etc/hosts : dataplatform.airbyte.io"
+    echo $(minikube ip) dataplatform.airbyte.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $FLINK == "y" ]]; then
@@ -156,6 +162,9 @@ fi
 if [[ $NIFI == "y" ]]; then
     kubectl create namespace nifi
     helm install --values values/nifi-values.yaml nifi cetic/nifi -n nifi
+    kubectl apply -f ingress/nifi-ingress.yaml
+    echo "update /etc/hosts : dataplatform.nifi.io"
+    echo $(minikube ip) dataplatform.nifi.io | sudo tee -a /etc/hosts
 fi
 
 if [[ $METABASE == "y" ]]; then

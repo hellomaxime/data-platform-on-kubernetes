@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: druid-ingress
+  namespace: druid-operator-system
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: dataplatform.druid.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: druid-tiny-cluster-routers
+                port:
+                  number: 8088

@@ -1,5 +1,5 @@
 Airbyte
-- kubectl port-forward service/airbyte-airbyte-webapp-svc 8000:80 -n airbyte
+- http://dataplatform.airbyte.io
 
 Airflow
 - http://dataplatform.airflow.io
@@ -17,7 +17,7 @@ ClickHouse
 
 Druid
 - create "druid" database in postgresql
-- kubectl port-forward service/druid-tiny-cluster-routers 8088:8088 -n druid-operator-system
+- http://dataplatform.druid.io
 
 Grafana
 - http://dataplatform.grafana.io
@@ -44,8 +44,7 @@ MySQL
 - username: root, password: root
 
 Nifi
-- kubectl port-forward svc/nifi 8443:8443 -n nifi
-- https://localhost:8443/nifi/
+- https://dataplatform.nifi.io
 - username: username, password: nifipassword
 
 PgAdmin
@@ -53,7 +52,6 @@ PgAdmin
 - username: admin@admin.com, password: password
 
 PostgreSQL
-- kubectl port-forward service/pgadmin-service 8080:80 -n postgresql
 - username: postgres, password: password
 
 Superset
