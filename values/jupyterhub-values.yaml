@@ -372,12 +372,14 @@ singleuser:
   extraLabels:
     hub.jupyter.org/network-access-hub: "true"
   extraFiles: {}
-  extraEnv: {}
+  extraEnv:
+    GRANT_SUDO: "yes"
+    NOTEBOOK_ARGS: "--allow-root"
   lifecycleHooks: {}
   initContainers: []
   extraContainers: []
   allowPrivilegeEscalation: false
-  uid: 1000
+  uid: 0
   fsGid: 100
   serviceAccountName:
   storage:
@@ -410,7 +412,7 @@ singleuser:
   extraResource:
     limits: {}
     guarantees: {}
-  cmd: jupyterhub-singleuser
+  cmd: ["jupyterhub-singleuser", "--allow-root"]
   defaultUrl:
   extraPodConfig: {}
   profileList: []
