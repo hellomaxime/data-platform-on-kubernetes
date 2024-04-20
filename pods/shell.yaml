@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shell
+  labels:
+    app: shell
+spec:
+  containers:
+  - image: wettyoss/wetty
+    args: ["--ssh-host=ubuntu-service.default.svc.cluster.local", "--allow-iframe"]
+    name: kube-shell
+    ports:
+    - containerPort: 3000
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: shell-service
+spec:
+  selector:
+    app: shell
+  ports:
+    - name: shell-port
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

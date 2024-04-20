@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: shell-sa
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pod-clusterrole
+rules:
+- apiGroups:
+  - ""
+  - "apps"
+  resources:
+  - pods
+  - nodes
+  - services
+  - namespaces
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - delete
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: pod-crb
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-clusterrole
+subjects:
+- kind: ServiceAccount
+  name: shell-sa
+  namespace: default
