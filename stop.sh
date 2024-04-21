@@ -45,9 +45,10 @@ if [[ $KAFKA == "y" ]]; then
 fi
 
 if [[ $GRAFANA == "y" ]]; then
-    helm uninstall prometheus
-    helm uninstall grafana
+    helm uninstall prometheus -n grafana
+    helm uninstall grafana -n grafana
     kubectl delete -f ingress/grafana-ingress.yaml
+    kubectl delete namespace grafana
 fi
 
 if [[ $POSTGRESQL == "y" ]]; then

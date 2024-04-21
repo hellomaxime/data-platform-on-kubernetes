@@ -71,8 +71,9 @@ if [[ $KAFKA == "y" ]]; then
 fi
 
 if [[ $GRAFANA == "y" ]]; then
-    helm install prometheus prometheus-community/prometheus
-    helm install grafana grafana/grafana
+    kubectl create namespace grafana
+    helm install prometheus prometheus-community/prometheus -n grafana
+    helm upgrade --install --values values/grafana-values.yaml grafana grafana/grafana -n grafana
     kubectl apply -f ingress/grafana-ingress.yaml
     echo "update /etc/hosts : dataplatform.grafana.io"
     echo $(minikube ip) dataplatform.grafana.io | sudo tee -a /etc/hosts

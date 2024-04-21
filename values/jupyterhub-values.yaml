@@ -76,7 +76,11 @@ hub:
   annotations: {}
   command: []
   args: []
-  extraConfig: {}
+  extraConfig:
+    hub: |
+      c.JupyterHub.tornado_settings = { 'headers': { 'Content-Security-Policy': 'frame-ancestors self http://localhost:5173'}}
+    spawner: |
+      c.Spawner.args = ['--NotebookApp.tornado_settings={"headers":{"Content-Security-Policy": "frame-ancestors * self http://localhost:5173"}}']
   extraFiles: {}
   extraEnv: {}
   extraContainers: []

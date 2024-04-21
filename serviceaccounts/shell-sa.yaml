@@ -13,12 +13,21 @@ rules:
 - apiGroups:
   - ""
   - "apps"
+  - "autoscaling"
+  - "batch"
   resources:
   - pods
   - nodes
   - services
   - namespaces
   - deployments
+  - replicationcontrollers
+  - daemonsets
+  - replicasets
+  - statefulsets
+  - horizontalpodautoscalers
+  - cronjobs
+  - jobs
   verbs:
   - get
   - list
