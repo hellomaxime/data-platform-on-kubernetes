@@ -28,6 +28,8 @@ rules:
   - horizontalpodautoscalers
   - cronjobs
   - jobs
+  - secrets
+  - configmaps
   verbs:
   - get
   - list

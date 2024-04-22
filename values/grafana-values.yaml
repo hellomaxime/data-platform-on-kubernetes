@@ -777,9 +777,8 @@ grafana.ini:
   server:
     domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
   security:
-      allow_embedding: true
-  auth.anonymous:
-      enabled: true
+    allow_embedding: true
+    cookie_samesite: disabled
 ## grafana Authentication can be enabled with the following values on grafana.ini
  # server:
       # The full public facing url you use in browser, used for redirects and emails

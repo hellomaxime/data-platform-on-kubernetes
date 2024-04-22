@@ -22,7 +22,7 @@ Druid
 Grafana
 - http://dataplatform.grafana.io
 - username: admin
-- password: `kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode`
+- password: `kubectl get secret --namespace grafana grafana -o jsonpath="{.data.admin-password}" | base64 --decode`
 
 JupyterHub
 - http://dataplatform.jupyterhub.io
