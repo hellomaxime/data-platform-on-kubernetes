@@ -133,6 +133,10 @@ extraVolumeMounts: []
 # WARNING: the order is not guaranteed
 # Files can be passed as helm --set-file configOverrides.my-override=my-file.py
 configOverrides:
+  embbed: |
+    HTTP_HEADERS = {}
+    TALISMAN_ENABLED = False
+    SESSION_COOKIE_SAMESITE = 'None'
   secret: |
     SECRET_KEY = '3d86cByrdRGniaBJu+tYhXUWFvrdCcIESxCtpu0xoU/H1pV+lvOUJRUj'
   # extend_timeout: |
